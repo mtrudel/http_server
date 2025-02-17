@@ -68,14 +68,14 @@ defmodule ThousandIsland.Transports.SSL do
       )
 
     if not Enum.any?(
-         [:keyfile, :key, :sni_hosts, :sni_fun],
+         [:certs_keys, :keyfile, :key, :sni_hosts, :sni_fun],
          &:proplists.is_defined(&1, resolved_options)
        ) do
       raise "transport_options must include one of keyfile, key, sni_hosts or sni_fun"
     end
 
     if not Enum.any?(
-         [:certfile, :cert, :sni_hosts, :sni_fun],
+         [:certs_keys, :certfile, :cert, :sni_hosts, :sni_fun],
          &:proplists.is_defined(&1, resolved_options)
        ) do
       raise "transport_options must include one of certfile, cert, sni_hosts or sni_fun"
